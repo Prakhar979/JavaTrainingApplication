@@ -24,6 +24,11 @@ public class empcontroller {
         return empservice.getemp();
     }
 
+    @GetMapping("/")
+    public String home(){
+        return "WELCOME TO PRAKHAR'S FIRST SPRING BOOT APPLICATION";
+    }
+
     @PostMapping("/add")
     public String addemp(@RequestBody employee employee){
         return empservice.saveemp(employee);
