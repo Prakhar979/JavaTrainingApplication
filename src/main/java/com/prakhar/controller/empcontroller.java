@@ -5,10 +5,7 @@ import com.prakhar.model.employee;
 import com.prakhar.repository.emprepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,11 +23,17 @@ public class empcontroller {
 
     @GetMapping("/")
     public String home(){
-        return "WELCOME TO PRAKHAR'S FIRST SPRING BOOT APPLICATION";
+        return "<h1>WELCOME TO PRAKHAR'S FIRST SPRING BOOT APPLICATION<h1>";
     }
+
 
     @PostMapping("/add")
     public String addemp(@RequestBody employee employee){
         return empservice.saveemp(employee);
+    }
+
+    @GetMapping("/emp/{age}")
+    public List<employee> findEmpByAge(@PathVariable("age") Integer age){
+        return empservice.findByAge(age);
     }
 }

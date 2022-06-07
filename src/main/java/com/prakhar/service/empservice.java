@@ -25,5 +25,9 @@ public class empservice {
             return "Employee added";
 
         }
+
+    }
+    public List<employee> findByAge(Integer age){
+        return emprepo.getByage(age);
     }
 }
