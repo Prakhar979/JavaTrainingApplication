@@ -23,11 +23,13 @@ public class empcontroller {
 
     @GetMapping("/")
     public String home(){
-        return "<h1>WELCOME TO PRAKHAR'S FIRST SPRING BOOT APPLICATION<h1>";
+        return "<h1>WELCOME TO PRAKHAR'S FIRST SPRING BOOT APPLICATION<h1> <form method=\"get\" action=\"/emp\">\n" +
+                "    <button type=\"submit\">Sign in and see employees</button>\n" +
+                "</form>";
     }
 
 
-    @PostMapping("/add")
+    @PostMapping("/emp")
     public String addemp(@RequestBody employee employee){
         return empservice.saveemp(employee);
     }
